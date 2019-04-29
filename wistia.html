@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Video Hosting for Buisness / Wistia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+    <style>
+       * {margin: 0pc;font-family: 'Muli', sans-serif;}
+       
+       header{                                            
+          border: 1px solid #f2f2f2;
+          display: flex;
+          background-color: white;
+          height: 120px;
+          font-weight:600 ;}
+       .main-nav{display: flex;flex: 1;align-items: center;}
+       .sub-nav{display: flex; flex: 1;align-items: center;background-color: #f9f9f9;font-weight: lighter;}
+       .main-nav a, .sub-nav a{padding: 0px 15px;color: #5b6b7f;}
+       nav{display: flex; flex: 4;border:1px solid #f9f9f9;flex-direction: column;position: relative;}
+       .dropdown-list-learn, .dropdown-list-about, .dropdown-list-support, .dropdown-list-pricing{display: none;}
+       div[class*="dopdown-nav"]{padding: 20px 0px;}
+       .dopdown-nav-learn:hover .dropdown-list-learn{
+          position: absolute;
+          display: flex;
+          bottom: 0;
+          background-color: #f9f9f9;
+          right: 5px;
+          left: 5px;
+          height: 50%;
+          align-items: center; 
+          font-weight: lighter;}
+       .dopdown-nav-about:hover .dropdown-list-about{
+          position: absolute;
+          display: flex;
+          bottom: 0;
+          background-color: #f9f9f9;
+          right: 5px;
+          left: 5px;
+          height: 50%; 
+          align-items: center;
+          font-weight: lighter;}
+       .dopdown-nav-support:hover .dropdown-list-support{
+          position: absolute;
+          display: flex;
+          bottom: 0;
+          background-color: #f9f9f9;
+          right: 5px;
+          left: 5px;
+          height: 50%;
+          align-items: center;
+          font-weight: lighter; }
+       .dopdown-nav-pricing:hover .dropdown-list-pricing{
+          position: absolute;
+          display: flex;
+          bottom: 0;
+          background-color: #f9f9f9;
+          right: 5px;
+          left: 5px;
+          height: 50%;
+          align-items: center;
+          font-weight: lighter; }
+       header a{color: #262626;text-decoration: none;}
+       #header-logo{flex: 1.2; width: 80px;
+       border:1px solid #f2f2f2;justify-content: center;}
+       .sign-up{flex: 0.6;border:1px solid #f2f2f2;color: #3ea9f5;}
+       .log-in{flex: 0.6;border:1px solid #f2f2f2;color: #5b6b7f;}      
+       .sign-up, .log-in{ display: flex; justify-content: center;align-items: center;}
+       .sign-up:hover{background-color:#f9f9f9;}
+       .log-in:hover{background-color:#f9f9f9;}
+
+       #video{height:95% ;width: 80%;}
+       .video-button:hover{
+          box-shadow: 0px 2.5px lightgray;
+          transform: translateY(-2.5px)}
+       .video-button{
+          background-color: white;
+          border: none;
+          border-radius: 6px;
+          color: #262626;
+          padding: 20px 50px;
+          text-align: center;
+          font-size: 20px;} 
+       .video-section{display: flex; background-color: #ca95a4; height: 570px;}
+       .right-video-section{ display: flex; flex: 1.2; align-items: flex-end; justify-content: flex-start; }
+       .left-video-section{display: flex; flex: 1; justify-content: center; align-items: center; 
+       flex-direction: column;}
+       .left-video-section p{font-size: 40px; color: #262626;}
+       .left-part{display: flex;  height: 200px;justify-content: space-between;flex-direction: column; margin-right: -120px;}
+       
+       .propositions p{font-size: 18px; color: #262626;}
+       .propositions a{color: #262626;}
+       .propositions h4{font-size:  25px; font-family: Arial, Helvetica, sans-serif;}
+       .propositions{display: flex; height: 410px; line-height: 1.6;}
+       .propositions-1 {display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; background-color: #fed24a;}
+       .pro-1-son{height: 330px;width: 400px;display: flex;flex-direction: column;}
+       .propositions-2 {display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; background-color: #51c29f;}
+       .pro-2-son{height: 330px;width: 400px;display: flex;flex-direction: column;}
+       .propositions-3 {display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; background-color: #3ea9f5;}
+       .pro-3-son{height: 330px;width: 400px;display: flex;flex-direction: column;}
+       .transparent-button{
+          background-color: transparent; border: 2px solid #f2f2f2;  border-radius: 6px;font-size:  16px;width: 180px;height: 60px;font-weight: bold; color: #262626;}
+       div[class*="pro-"]{justify-content: space-between;}
+       .transparent-button:hover{
+          background-color: white;
+          box-shadow: 0px 3px #f2f2f2;
+          transform: translateY(-3px);
+          border: none;}
+
+       .clients{
+          display: flex;
+          justify-content:space-around;
+          align-items: center;
+          padding-left: 90px; padding-right: 90px;
+          height: 390px;
+          color: #9ca8b7;
+          font-weight: bold;}
+
+       .articles h4{font-size: 17px;line-height: 3;}
+       .articles p{font-size: 13px;line-height: 2;}
+       .articles a{font-size: 13px;line-height: 4;}
+       .articles{
+          display: flex;
+          justify-content: space-around;
+          padding: 0px 120px;
+          height: 530px;}
+       div[class*="article-"]{max-width: 340px;}
+       .articles img{max-width: 340px;}
+       .article-left, .article-center, .article-right{flex: 1;}
+       #first-image{position: relative;width: 100%; height: 46.2%;}
+       #second-image{position: relative;width: 100%; height: 46.2%;}
+       #third-image{position: relative;width: 100%; height: 46.2%;}
+       #first-image:hover #first-overlay{opacity: 1;}
+       #first-overlay{
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 100%;
+          width: 100%;
+          opacity: 0;
+          background-color: rgba(62, 169, 245, 0.8000);}
+       #second-image:hover #second-overlay{opacity: 1;}
+       #second-overlay{
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 100%;
+          width: 100%;
+          opacity: 0;
+          background-color: rgba(81, 194, 159, 0.8000);}
+       #third-image:hover #third-overlay{opacity: 1;}
+       #third-overlay{
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 100%;
+          width: 100%;
+          opacity: 0;
+          background-color: rgba(206, 160, 175, 0.8000);}
+
+       .terms-of-service{
+          background-color: #f2f2f2;
+          display: flex;
+          justify-content: center;
+          height: 70px;
+          align-items: center;
+          font-size: 17px}
+          
+       .company-infos{
+          background-color: #2a2d35;
+          justify-content: space-between;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          padding: 0px 80px ;
+          height: 420px;}
+       .vertical-menues{
+          display: flex;
+          padding-right: 70px; padding-left: 50px;
+          flex: 2;
+          justify-content: space-around;
+          margin-top: 15px;}
+       .vertical-menues a{font-weight: lighter;}
+       .vertical-menues ul{color: white; width: fit-content;line-height: 1;font-weight: bold;}
+       .motto-and-socialmedia a{text-decoration: none;color:#3ea9f5;}
+       .motto-and-socialmedia a:hover{color:#0691f2;}
+       .motto-and-socialmedia{
+          justify-self: flex-start;
+          flex: 1;
+          align-items: flex-start;
+          margin-top: -100px;
+          height: 120px;}
+       .motto-and-socialmedia h3{line-height: 1.5;}
+       .copyrights{
+          display: flex;
+          flex: 1;
+          background-color: #2a2d35;
+          justify-content: center;
+          min-height: 80px;
+          border-top: white 1px solid;
+          align-items: center;
+          color: #b3b3b3;}
+       .motto-and-menues{
+          flex: 5;
+          display: flex;
+          align-items: center;}
+       ul a{color: #b3b3b3;text-decoration: none;}
+       ul a:hover{text-decoration: underline;}
+       .ul2{margin-left: 40px;}
+       .ul3{margin-right: -20px;}
+    </style>    
+</head>
+
+<body>
+    <header>
+      <img id="header-logo"src="https://www.southpointfilms.com/wp-content/uploads/2015/06/wistia-logo-full.jpg" alt="wistia-logo"  width="120">
+      <nav>
+         <div class="main-nav">
+            <a href="">Product</a>
+            <div class="dopdown-nav-learn">
+              <a href="">Learn</a>
+              <div class="dropdown-list-learn">
+                   <a href="">production</a>
+                   <a href="">marketing</a>
+                   <a href="">Sales</a>
+                   <a href="">Product Updates</a>
+                   <a href="">Customer Showcase</a>
+                   <a href="">Wistia Culture</a>
+              </div>
+            </div>
+            <div class="dopdown-nav-about">
+              <a href="">About</a>
+              <div class="dropdown-list-about">
+                   <a href="">Our Team</a>
+                   <a href="">Our Values</a>
+                   <a href="">Jobs</a>
+                   <a href="">Agency Partners</a>
+              </div>
+            </div>
+            <div class="dopdown-nav-support">
+              <a href="">Support</a>
+              <div class="dropdown-list-support">
+                   <a href="">Help Center</a>
+                   <a href="">FAQ</a>
+                   <a href="">Status</a>
+                   <a href="">Contact</a>
+              </div>
+            </div>
+            <div class="dopdown-nav-pricing">
+              <a href="">Pricing</a>
+              <div class="dropdown-list-pricing">
+                   <a href="">Wistia for Marketing Pricing</a>
+                   <a href="">Soapbox Pricing</a>
+              </div>
+            </div>
+         </div>
+
+         <div class="sub-nav">
+            <a href="">Features</a>
+            <a href="">Platform</a>
+            <a href="">Integrations</a>
+            <a href="">Soapbox</a>
+         </div>
+      </nav>
+      <a class="sign-up" href=""><img width="20px" src="https://img.icons8.com/windows/32/000000/contacts.png">Sign up</a>
+      <a class="log-in" href=""><img width="20px" src="https://img.icons8.com/windows/32/000000/enter-2.png">Log in</a>
+    </header>
+
+    <main>
+      <section class="video-section">
+         <div class="left-video-section">
+            <div class="left-part">
+               <div><p><span style="color:white">Video software</span> for<br>the video-loving business</p></div>
+               <div><button class="video-button" type="button" onclick="">Watch Video</button></div> 
+            </div>
+         </div>
+
+         <div class="right-video-section">
+            <img id="video" src="https://media.giphy.com/media/3oEdvdEl6fCc53I0Za/giphy.gif" alt="funny.gifs">
+         </div>
+      </section>
+
+      <section class="propositions">
+          <div class="propositions-1">
+             <div class="pro-1-son">
+                <img src="http://icons.iconarchive.com/icons/icons8/ios7/64/Data-Combo-Chart-icon.png" alt="stats-icon" height="50px" width="50px">
+                <h4 style="color:white">Wistia Hosting: Market your<br>videos</h4>
+                <p>Try our sleek, customizable player,<br>advanced tools for marketers, and detailed<br>analytics. <a href="">Learn more</a></p>
+                <button class="transparent-button" type="button">Start for free</button>
+             </div>
+          </div>
+
+          <div class="propositions-2">
+             <div class="pro-2-son">
+                <img src="http://icons.iconarchive.com/icons/praveen/minimal-outline/72/laptop-icon.png" alt="pc-icon"height="60px" width="60px">
+                <h4 style="color:white">Soapbox: Create new videos, fast</h4>
+                <p>Make professional videos in minutes with<br>just your computer’s camera and a smile.<br> <a href="">Learn more</a></p>
+                <button class="transparent-button" type="button">Start for free</button>
+             </div>
+          </div>
+
+          <div class="propositions-3">
+             <div class="pro-3-son">
+                <img src="http://icons.iconarchive.com/icons/pixelkit/swanky-outlines/64/05-Bookmark-Book-icon.png" alt="book-icon"height="60px" width="60px">
+                <h4 style="color:white">Grow your video skills</h4>
+                <p>In-depth guides for making, marketing,<br>and measuring videos. Get inspired and<br>get shooting.</p>
+                <button class="transparent-button" type="button">Explore and learn</button>
+             </div>
+          </div> 
+      </section>
+
+      <section class="clients">
+          <p>Wistia is proud to <br> help over 300,000 <br> businesses grow <br> with video.</p>
+          <img src="https://smartforms.rednao.com/wp-content/uploads/2016/09/mailchimp.jpg" alt="mailchimp" width="130" height="130">
+          <img src="https://media.xconomy.com/wordpress/wp-content/images/2013/05/06192244/Moz-logo.jpg" alt="moz" width="180" height="130">
+          <img src="https://www.netpremacy.com/wp-content/uploads/2018/06/zendesk-logo-preview.png" alt="zendesk" width="130" height="130">
+          <img src="https://seekvectorlogo.net/wp-content/uploads/2018/11/unbounce-vector-logo.png" alt="unbounce" width="130" height="130">
+          <img src="https://www.seeklogovector.com/wp-content/uploads/2018/09/casper-logo-vector.png" alt="casper" width="160" height="130">
+      </section>
+
+      <section class="articles">
+          <div class="article-left">
+             <a href=""><div id="first-image">
+                <img src="https://images.ctfassets.net/j7pfe8y48ry3/32FQenq8swms62WyQOiMQC/c348c3553148912d25f6bc7fb47a8326/one-ten-one-hundred-series-2d339f485ef516fe44defed3eb881e85.jpg" alt="first-div">
+                <div id="first-overlay"></div>
+             </div></a>
+             <h4>One, Ten, One Hundred is here!</h4>
+             <p>Explore how budgetary constraints affect <br> creativity—for better or worse—in our new<br>original series.</p>
+             <a href="">Watch it now</a>
+          </div>
+
+          <div class="article-center">
+             <a href=""> <div id="second-image">
+                <img src="https://images.ctfassets.net/j7pfe8y48ry3/6rUfyZUNpY6qKEYGoeGcQK/67761e4f114e53a133cc6bda47c15724/ab-testing.png" alt="second-div">
+                <div id="second-overlay"></div>
+             </div></a>
+             <h4>A/B Test Your Videos in Wistia!</h4>
+             <p>Increase engagement, boost conversion rates, <br> and find out which videos perform the best with <br> our new A/B testing feature.</p>
+             <a href="">Learn more</a>
+          </div>
+
+          <div class="article-right">
+             <a href=""><div id="third-image">
+                <img src="https://images.ctfassets.net/j7pfe8y48ry3/3NhdJLQzvyUkmeomKGQmEy/bb8d60955d333b96453c06ed5a36453d/road-less-traveled-acaa9649794ba0c8f85388065c2c2f16.jpg" alt="third-div">
+                <div id="third-overlay"></div>
+             </div></a>
+             <h4>Taking the Road Less Traveled</h4>
+             <p>Learn how we built a creatively-driven, <br> profitable business — all without raising <br> additional funding or going public.</p>
+             <a href="">Read the full story</a>
+          </div>
+      </section>
+
+      <section class="terms-of-service">
+            <p>We’ve updated our <a href="" style="color:#808080">Terms of Service.</a></p>
+      </section>
+    </main>
+
+    <footer class="company-infos">
+        <div class="motto-and-menues">
+            <div class="motto-and-socialmedia">
+               <svg xmlns="http://www.w3.org/2000/svg" class="jsx-1124597497 WistiaLogo" role="presentation" style="width: 31.5px; height: 30px;" viewBox="0 0 486 128" preserveAspectRatio="xMinYMid slice" focusable="false" height="30">
+                  <g class="jsx-1124597497 WistiaLogo--swoopies" opacity="1" transform="scale(1.55) translate(-20 -22)">
+                     <path class="jsx-1124597497" fill="#3ea9f5" d="M 104.5 43.8 c 1.8 -10.8 -4.3 -13.8 -4.3 -13.8 s 0.3 8.8 -15.9 10.7 c -14.4 1.7 -62.5 0.4 -62.5 0.4 s 0 0 15.5 17.8 c 4.2 4.8 6.4 5.4 11.1 5.7 c 4.7 0.3 15.1 0.2 22.2 -0.3 c 7.7 -0.6 18.7 -3.1 26.1 -8.9 C 100.4 52.4 103.7 48.3 104.5 43.8 Z" />
+                     <path class="jsx-1124597497" fill="#3ea9f5" d="M 105.5 55 c 0 0 -1.9 3.9 -11.6 10 c -4.1 2.6 -12.7 5.4 -23.7 6.4 c -6 0.6 -16.9 0.1 -21.6 0.1 c -4.7 0 -6.9 1 -11.1 5.8 C 21.7 94.9 21.7 94.9 21.7 94.9 s 5.4 0 9.5 0 c 4.1 0 29.7 1.5 41 -1.6 C 109.1 83.1 105.5 55 105.5 55 Z" />
+                  </g>
+                  <g class="jsx-1124597497 WistiaLogo--text" opacity="0" fill="#3ea9f5" transform="translate(110)">
+                        <path class="jsx-1124597497" transform="translate(169 63) scale(0, 1) translate(-169 -63)" d="M 210 29.8 h 9.4 l -26.5 65.8 h -2.1 l -21.4 -53.3 l -21.6 53.3 h -2 l -26.4 -65.8 h 9.4 l 18 45.1 L 165 29.8 h 8.9 l 18.3 45.1 L 210 29.8 Z" />
+                        <path class="jsx-1124597497" transform="translate(236 63) scale(0, 1) translate(-236 -63)" d="M 231.5 29.8 h 9.4 v 65.5 h -9.4 V 29.8 Z" />
+                        <path class="jsx-1124597497" transform="translate(276 62) scale(0, 1) translate(-276 -62)" d="M 276.4 67.8 l -7.1 -4.3 c -4.5 -2.7 -7.6 -5.4 -9.5 -8.1 c -1.9 -2.6 -2.8 -5.7 -2.8 -9.1 c 0 -5.2 1.8 -9.3 5.4 -12.6 c 3.6 -3.2 8.2 -4.8 13.9 -4.8 c 5.5 0 10.5 1.5 15 4.6 v 10.6 c -4.7 -4.5 -9.8 -6.8 -15.2 -6.8 c -3.1 0 -5.6 0.7 -7.5 2.1 c -2 1.4 -3 3.2 -3 5.4 c 0 2 0.7 3.8 2.2 5.5 c 1.5 1.7 3.8 3.5 7 5.4 l 7.2 4.2 c 8 4.8 12 10.8 12 18.2 c 0 5.2 -1.8 9.5 -5.3 12.8 c -3.5 3.3 -8.1 4.9 -13.7 4.9 c -6.5 0 -12.4 -2 -17.7 -6 V 78.1 c 5.1 6.4 10.9 9.6 17.6 9.6 c 2.9 0 5.4 -0.8 7.3 -2.5 s 2.9 -3.7 2.9 -6.1 C 285.1 75.2 282.2 71.4 276.4 67.8 Z" />
+                        <path class="jsx-1124597497" transform="translate(331 62) scale(0, 1) translate(-331 -62)" d="M 303.4 29.7 h 54.7 V 38 h -22.8 v 57.2 h -9.4 V 38 h -22.5 V 29.7 Z" />
+                        <path class="jsx-1124597497" transform="translate(377 63) scale(0, 1) translate(-377 -63)" d="M 371.9 29.8 h 9.4 v 65.5 h -9.4 V 29.8 Z" />
+                        <path class="jsx-1124597497" transform="translate(425 62) scale(0, 1) translate(-425 -62)" d="M 421.5 29.4 h 6.6 l 29.4 65.9 h -9.6 l -8.7 -19.4 h -27.9 L 403 95.3 h -9.6 L 421.5 29.4 Z M 435.3 67.5 l -10.6 -23.7 l -9.8 23.7 H 435.3 Z" />
+                  </g>
+               </svg>
+               <h3>Wistia is the video platform <br> for growing businesses.</h3><br><br>
+               <p>Follow us: <a href="">Facebook</a>, <a href="">LinkedIn</a>, <a href="">Twitter</a>, <a href="">Instagram</a></p>  
+            </div>
+            <div class="vertical-menues">
+                  <ul class="ul1"><p>Product</p><br>
+                     <p><a href="">Features</a></p><br>
+                     <p><a href="">Soapbox</a></p><br>
+                     <p><a href="">Pricing</a></p><br>
+                     <p><a href="">Integrations</a></p> <br>
+                   </ul>
+                   <ul class="ul2"><p>Company</p><br>
+                     <p><a href="">Team</a></p><br>
+                     <p><a href="">Jobs</a></p><br>
+                     <p><a href="">Brand Assets</a></p><br>
+                     <p><a href="">Agency Partners</a></p><br>
+                     <p><a href="">Community</a></p><br>
+                   </ul>
+                   <ul class="ul3"><p>Learn</p><br>
+                     <p><a href="">Production</a></p><br>
+                     <p><a href="">Marketing</a></p><br>
+                     <p><a href="">Sales</a></p><br>
+                     <p><a href="">Product Updates</a></p><br>
+                     <p><a href="">Customer Showcase</a></p><br>
+                     <p><a href="">Culture</a></p><br>
+                   </ul>
+                   <ul class="ul4"><p>Support</p><br>
+                     <p><a href="">FAQ</a></p><br>
+                     <p><a href="">Status</a></p><br>
+                     <p><a href="">Help Center</a></p><br>
+                     <p><a href="">Help Videos</a></p><br>
+                   </ul>
+            </div> 
+        </div>
+
+        <div class="copyrights">
+            <p>©2001–2019 All rights reserved. Privacy and Terms.</p>
+        </div> 
+    </footer>
+</body>
+</html>
